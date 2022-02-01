@@ -56,8 +56,8 @@ def main():
     article = """Coming soon...
         """
     examples = [
-        ["yo"],
-        ["me"],
+        ["yo\nme", "你\n我"],
+        ["me\nshe", "你\n她", ],
     ]
 
     lines = 15
