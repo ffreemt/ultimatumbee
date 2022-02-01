@@ -53,7 +53,7 @@ def main():
     title = "Ultimatumbee Aligner"
     theme = "dark-grass"
     description = """WIP showcasing a novel aligner"""
-    article = """Coming soon...
+    article = """Stay tuned for more details coming soon...
         """
     examples = [
         ["yo\nme", "你\n我"],
