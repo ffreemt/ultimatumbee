@@ -10,18 +10,19 @@ def greet(name):
 def main():
     """Create main entry."""
     title = "Ultimatumbee Aligner"
-    theme = "dark"
+    theme = "dark-grass"
     description = """WIP showcasing a novel aligner"""
     article = \
         """Coming soon...
         """
     examples = [
-        ["dummy"],
+        ["yo"],
+        ["me"],
     ]
 
     iface = gr.Interface(
         fn=greet,
-        titel=title,
+        title=title,
         theme=theme,
         description=description,
         article=article,
