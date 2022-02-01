@@ -36,8 +36,10 @@ def greet(text1, text2) -> pd.DataFrame:
     """Take inputs, return outputs.
 
     Args:
-        text1:
-        text2:
+        text1: text
+        text2: text
+    Returns:
+        pd.DataFrame
     """
     res1 = [elm for elm in text1.splitlines() if elm.strip()]
     res2 = [elm for elm in text2.splitlines() if elm.strip()]
