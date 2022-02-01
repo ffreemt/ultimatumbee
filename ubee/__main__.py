@@ -41,8 +41,8 @@ def greet(text1, text2) -> pd.DataFrame:
     Returns:
         pd.DataFrame
     """
-    res1 = [elm for elm in text1.splitlines() if elm.strip()]
-    res2 = [elm for elm in text2.splitlines() if elm.strip()]
+    res1 = [elm.strip() for elm in text1.splitlines() if elm.strip()]
+    res2 = [elm.strip() for elm in text2.splitlines() if elm.strip()]
 
     _ = pd.DataFrame(zip_longest(res1, res2), columns=["text1", "text2"])
     return _
