@@ -60,7 +60,7 @@ def main():
         ["me"],
     ]
 
-    lines = 30
+    lines = 15
     placeholder = "Type or paste text here"
     default1 = dedent(
         """ test 1
