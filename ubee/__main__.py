@@ -1,6 +1,7 @@
 """Gen ubee main."""
-# pylint: disable=unused-import
+# pylint: disable=unused-import, wrong-import-position
 
+import sys
 from itertools import zip_longest
 from textwrap import dedent
 
@@ -10,6 +11,10 @@ import pandas as pd
 from icecream import install as ic_install, ic
 import logzero
 from logzero import logger
+
+# for embeddable python
+if "." not in sys.path:
+    sys.path.insert(0, ".")
 
 from ubee.ubee import ubee
 
@@ -93,6 +98,7 @@ def main():
         # fn=ubee,
         title=title,
         theme=theme,
+        layout="vertical",  # horizontal unaligned
         description=description,
         article=article,
         # inputs="text",
