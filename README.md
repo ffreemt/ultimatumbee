@@ -4,7 +4,7 @@ emoji: 🏢
 colorFrom: blue
 colorTo: indigo
 sdk: gradio
-app_file: app.py
+app_file: ubee/__main__.py
 pinned: false
 license: mit
 ---
@@ -27,7 +27,7 @@ Color for Thumbnail gradient (red, yellow, green, blue, indigo, purple, pink, gr
 Can be either `gradio`, `streamlit`, or `static`
 
 `sdk_version` : _string_
-Only applicable for `streamlit` SDK.  
+Only applicable for `streamlit` SDK.
 See [doc](https://hf.co/docs/hub/spaces) for more info on supported versions.
 
 `app_file`: _string_

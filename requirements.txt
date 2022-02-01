@@ -1,0 +1,11 @@
+gradio
+transformers
+sentencepiece
+sklearn
+logzero
+git+https://github.com/ffreemt/fast-langid
+git+https://github.com/ffreemt/align-model-pool
+sentence-transformers
+sentence_splitter
+icecream
+alive-progress
