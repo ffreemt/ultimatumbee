@@ -4,7 +4,7 @@ emoji: 🏢
 colorFrom: blue
 colorTo: indigo
 sdk: gradio
-app_file: "-m ubee"
+app_file: ubee/__main__.py
 pinned: false
 license: mit
 ---
