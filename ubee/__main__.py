@@ -63,13 +63,17 @@ def main():
     lines = 15
     placeholder = "Type or paste text here"
     default1 = dedent(
-        """ test 1
+        """
+        test 1
+        abc
         love you
         """
     )
     default2 = dedent(
-        """ 测试 1
+        """
         爱你
+        甲乙丙
+        测试 1
         """
     )
     label1 = "text1"
