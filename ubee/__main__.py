@@ -76,11 +76,16 @@ def main():
     title = "Ultimatumbee Aligner"
     theme = "dark-grass"
     description = """WIP showcasing a novel aligner"""
-    article = """Stay tuned for more details coming soon...
+    article = """
+        The ultimatumbee aligner (``ubee`` for short) is intended for aligning text blocks (be it paragraphs, sentences or words). Since it is rather slow (30 para pairs (Wuthering Height ch1. for example) can take 10 to 20 mniutes), 50 or more blocks should probably be avaoided. Nevertheless, you are welcome to try. No big brother is watching.
+
+        ``thresh``: longer text blocks justify a larger value; `.5` appears to be just right for paragraphs for Wuthering Height ch1.
+
+        Stay tuned for more details coming soon...
         """
     examples = [
-        ["yo\nme", "你\n我"],
-        ["me\nshe", "你\n她", ],
+        ["yo\nme", "你\n我", .5],
+        ["me\nshe", "你\n她", .5],
     ]
 
     lines = 15
@@ -148,7 +153,7 @@ def main():
         outputs=outputs,
         examples=examples,
     )
-    iface.launch(enable_queue=False)
+    iface.launch(enable_queue=True)
 
 
 if __name__ == "__main__":
