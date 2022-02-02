@@ -62,7 +62,11 @@ def greet(
 
     res1_, res2_ = ubee(res1, res2, thresh)
 
-    return pd.DataFrame(res1_, columns=["text1", "text2", "likelihood"]), pd.DataFrame(res2_, columns=["text1", "text2"])
+    if res2_:
+        _ = pd.DataFrame(res2_, columns=["text1", "text2"])
+    else:
+        _ = None
+    return pd.DataFrame(res1_, columns=["text1", "text2", "likelihood"]), _
 
 
 def main():
