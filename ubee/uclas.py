@@ -13,7 +13,7 @@ from model_pool.load_model import load_model  # pylint: disable=import-error
 import logzero
 from logzero import logger
 
-logzero.loglevel(10)
+logzero.loglevel(20)
 
 fetch_check_aux("/home/user")
 model_s = load_model_s()

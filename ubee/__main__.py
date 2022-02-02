@@ -54,6 +54,9 @@ def greet(
     res1 = [elm.strip() for elm in text1.splitlines() if elm.strip()]
     res2 = [elm.strip() for elm in text2.splitlines() if elm.strip()]
 
+    ic(res1)
+    ic(res2)
+
     # _ = pd.DataFrame(zip_longest(res1, res2), columns=["text1", "text2"])
     # return _
 
@@ -73,11 +76,13 @@ def main():
         for elm in Path("data/test_en.txt").read_text("utf8").splitlines()
         if elm.strip()
     ]
-    shuffle(text_en[:10])
-    text_en = "\n\n".join(text_en)
+    _ = text_en[:9]
+    shuffle(_)
+    text_en = "\n\n".join(_)
 
     title = "Ultimatumbee Aligner"
     theme = "dark-grass"
+    theme = "grass"
     description = """WIP showcasing a novel aligner"""
     article = dedent("""
         ## NB
@@ -157,9 +162,12 @@ def main():
         inputs=inputs,
         outputs=outputs,
         examples=examples,
-        enable_queue=True,
+        # enable_queue=True,
     )
-    iface.launch(enable_queue=True)
+    iface.launch(
+        enable_queue=True,
+        share=True,
+    )
 
 
 if __name__ == "__main__":
