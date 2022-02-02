@@ -5,6 +5,7 @@ from itertools import zip_longest
 
 from logzero import logger
 from ubee.uclas import uclas
+from icecream import ic
 
 
 def ubee(
@@ -28,6 +29,7 @@ def ubee(
     lo2 = labels[:]
 
     for seq in sents_zh:
+        ic(seq)
         label, likelihood = uclas(seq, labels, thresh=thresh)
         if label:
             res.append((seq, label, likelihood))
