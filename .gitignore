@@ -140,4 +140,7 @@ cython_debug/
 *.swp
 links/
 # .gitignore
-node_modulescachedir
+node_modules
+cachedir
+gradio_queue.db
+gradio_queue.db-journal
