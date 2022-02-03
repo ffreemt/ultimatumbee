@@ -31,6 +31,7 @@ def ubee(
     for seq in sents_zh:
         ic(seq)
         label, likelihood = uclas(seq, labels, thresh=thresh)
+        likelihood = round(float(likelihood), 2)
         if label:
             res.append((seq, label, likelihood))
             try:
