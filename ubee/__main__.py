@@ -1,13 +1,13 @@
 """Gen ubee main."""
-# pylint: disable=unused-import, wrong-import-position
+# pylint: disable=unused-import, wrong-import-position, wrong-import-order, too-many-locals, broad-except
 
-from typing import Tuple
+from typing import Tuple, Optional
 
 from pathlib import Path
 import sys
 from random import shuffle
 
-# from itertools import zip_longest
+from itertools import zip_longest
 from textwrap import dedent
 
 import gradio as gr
@@ -42,7 +42,7 @@ def greet(
     text1,
     text2,
     thresh: float
-) -> Tuple[pd.DataFrame, pd.DataFrame]:
+) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """Take inputs, return outputs.
 
     Args:
@@ -62,22 +62,28 @@ def greet(
 
     res1_, res2_ = ubee(res1, res2, thresh)
 
+    out_df = pd.DataFrame(
+        zip_longest(res1, res2),
+        columns=["text1", "text2"],
+    )
+
     if res2_:
         _ = pd.DataFrame(res2_, columns=["text1", "text2"])
     else:
         _ = None
-    return pd.DataFrame(res1_, columns=["text1", "text2", "likelihood"]), _
+
+    return out_df, pd.DataFrame(res1_, columns=["text1", "text2", "likelihood"]), _
 
 
 def main():
     """Create main entry."""
-    text_zh = Path("data/test_zh.txt").read_text("utf8")
+    text_zh = Path("data/test_zh.txt").read_text(encoding="utf8")
     text_zh = [elm.strip() for elm in text_zh.splitlines() if elm.strip()][:10]
     text_zh = "\n\n".join(text_zh)
 
     text_en = [
         elm.strip()
-        for elm in Path("data/test_en.txt").read_text("utf8").splitlines()
+        for elm in Path("data/test_en.txt").read_text(encoding="utf8").splitlines()
         if elm.strip()
     ]
     _ = text_en[:9]
