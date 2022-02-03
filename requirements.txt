@@ -20,3 +20,4 @@ pycld2
 tqdm
 polyglot
 sentence_splitter
+pyfunctional
