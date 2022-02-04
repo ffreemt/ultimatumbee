@@ -122,10 +122,13 @@ def main():
          'She looked at me, leaning back in her chair, and remained motionless and mute.'
     ]
     shuffle(ex1_en)
+    ex1_zh = "\n".join(ex1_zh)
+    ex1_en = "\n".join(ex1_en)
 
     ex2_zh = "她\n望望\n我\n往\n她\n的\n椅背\n一靠\n不\n动\n也\n不\n出声"
     ex2_en = "She looked at me leaning back in her chair and remained motionless and mute".split()
     shuffle(ex2_en)
+    ex2_en = "\n".join(ex2_en)
 
     examples = [
         [ex2_zh, ex2_en, .3],
