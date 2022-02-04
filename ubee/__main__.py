@@ -123,7 +123,7 @@ def main():
     ]
     shuffle(ex1_en)
 
-    ex2_zh = 
+    ex2_zh = "她\n望望\n我\n往\n她\n的\n椅背\n一靠\n不\n动\n也\n不\n出声"
     ex2_en = "She looked at me leaning back in her chair and remained motionless and mute".split()
     shuffle(ex2_en)
 
@@ -133,20 +133,14 @@ def main():
     ]
     lines = 15
     placeholder = "Type or paste text here"
-    label1 = "text1"
-    label2 = "text2"
+
     inputs = [
         gr.inputs.Textbox(
-            lines=lines, placeholder=placeholder, default=ex1_zh, label=label1
+            lines=lines, placeholder=placeholder, default=ex1_zh, label="text1"
         ),
         gr.inputs.Textbox(
-            lines=lines, placeholder=placeholder, default=ex1_en, label=label2
+            lines=lines, placeholder=placeholder, default=ex1_en, label="text2"
         ),
-        gr.inputs.Radio(
-            ["para", "sent", "word"],
-            default="para",
-            label="segment"
-        )
         gr.inputs.Slider(
             minimum=0.0,
             maximum=1.0,
@@ -209,3 +203,12 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+_ = """
+
+        gr.inputs.Radio(
+            ["para", "sent", "word"],
+            default="para",
+            label="segment"
+        )
+# """
