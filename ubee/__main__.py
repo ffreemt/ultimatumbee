@@ -256,7 +256,7 @@ def main():
                     label="Leftover",
                 )
             btn.click(
-                fn=ifn,
+                ifn,
                 inputs=[
                     text1,
                     text2,
