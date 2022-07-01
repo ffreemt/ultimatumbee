@@ -16,9 +16,9 @@ from icecream import install as ic_install
 from logzero import logger
 
 # for embeddable python
-# if "." not in sys.path: sys.path.insert(0, ".")
+if "." not in sys.path:
+    sys.path.insert(0, ".")
 
-from ubee import __version__
 from ubee.ubee import ubee
 
 # logzero.loglevel(10)
@@ -36,7 +36,7 @@ def greet1(name):
     return "Hello " + name + "!!"
 
 
-def ifn(
+def greet(
     text1,
     text2,
     # segment: str
@@ -89,7 +89,7 @@ def main():
     shuffle(_)
     text_en = "\n\n".join(_)
 
-    title = "Ultimatumbee"
+    title = "Ultimatumbee Aligner"
     theme = "dark-grass"
     theme = "grass"
     description = """WIP showcasing a novel aligner"""
@@ -106,24 +106,24 @@ def main():
     ex1_zh = [
         '雪开始下大了。',
         '我握住门柄又试一回。',
-        '这时一个没穿外衣的年轻人，扛着一根草耙，在后面院子里出现了。', '他招呼我跟着他走，穿过了一个洗衣房和一片铺平的地，那儿有煤棚、抽水机和鸽笼，我们终于到了我上次被接待过的那间温暖的、热闹的大屋子。',
+        '这时一个没穿外衣的年轻人，扛着一根草耙，在后面院子里出现了。',        '他招呼我跟着他走，穿过了一个洗衣房和一片铺平的地，那儿有煤棚、抽水机和鸽笼，我们终于到了我上次被接待过的那间温暖的、热闹的大屋子。',
         '煤、炭和木材混合在一起燃起的熊熊炉火，使这屋子放着光彩。', '在准备摆上丰盛晚餐的桌旁，我很高兴地看到了那位“太太”，以前我从未料想到会有这么一个人存在的。',
         '我鞠躬等候，以为她会叫我坐下。',
         '她望望我，往她的椅背一靠，不动，也不出声。'
     ]
     ex1_en = [
         'The snow began to drive thickly.',
-        'I seized the handle to essay another trial; when a young man without coat, and shouldering a pitchfork, appeared in the yard behind.',
-        'He hailed me to follow him, and, after marching through a wash-house, and a paved area containing a coal shed, pump, and pigeon cot, we at length arrived in the huge, warm, cheerful apartment, where I was formerly received.',
-        "It glowed delightfully in the radiance of an immense fire, compounded of coal, peat, and wood; and near the table, laid for a plentiful evening meal, I was pleased to observe the `missis', an individual whose existence I had never previously suspected.",
-        'I bowed and waited, thinking she would bid me take a seat.',
-        'She looked at me, leaning back in her chair, and remained motionless and mute.'
+         'I seized the handle to essay another trial; when a young man without coat, and shouldering a pitchfork, appeared in the yard behind.',
+         'He hailed me to follow him, and, after marching through a wash-house, and a paved area containing a coal shed, pump, and pigeon cot, we at length arrived in the huge, warm, cheerful apartment, where I was formerly received.',
+         "It glowed delightfully in the radiance of an immense fire, compounded of coal, peat, and wood; and near the table, laid for a plentiful evening meal, I was pleased to observe the `missis', an individual whose existence I had never previously suspected.",
+         'I bowed and waited, thinking she would bid me take a seat.',
+         'She looked at me, leaning back in her chair, and remained motionless and mute.'
     ]
     shuffle(ex1_en)
     ex1_zh = "\n".join(ex1_zh)
     ex1_en = "\n".join(ex1_en)
 
-    ex2_zh = "她\n望望\n我\n往\n她的\n椅背\n一靠\n不\n动\n也\n不\n出声"
+    ex2_zh = "她\n望望\n我\n往\n她\n的\n椅背\n一靠\n不\n动\n也\n不\n出声"
     ex2_en = "She looked at me leaning back in her chair and remained motionless and mute".split()
     shuffle(ex2_en)
     ex2_en = "\n".join(ex2_en)
@@ -137,10 +137,10 @@ def main():
 
     inputs = [
         gr.inputs.Textbox(
-            lines=lines, placeholder=placeholder, default=ex2_zh, label="text1"
+            lines=lines, placeholder=placeholder, default=ex1_zh, label="text1"
         ),
         gr.inputs.Textbox(
-            lines=lines, placeholder=placeholder, default=ex2_en, label="text2"
+            lines=lines, placeholder=placeholder, default=ex1_en, label="text2"
         ),
         gr.inputs.Slider(
             minimum=0.0,
@@ -181,7 +181,6 @@ def main():
         leftover,
     ]
 
-    _ = """ # switch to blocks
     iface = gr.Interface(
         fn=greet,
         # fn=ubee,
@@ -201,72 +200,6 @@ def main():
         enable_queue=True,
         share=True,
     )
-    # """
-    blocks = gr.Blocks()
-
-    with blocks:
-        gr.Markdown(
-            dedent(f"""
-            ## Ultimatumbee {__version__}
-
-            Align non-sequential dualtexts.
-
-            """).strip()
-        )
-        with gr.Column():
-            with gr.Row():
-                text1 = gr.inputs.Textbox(
-                    lines=lines, placeholder=placeholder, default=ex2_zh, label="text1"
-                ),
-                text2 = gr.inputs.Textbox(
-                    lines=lines, placeholder=placeholder, default=ex2_en, label="text2"
-                )
-            with gr.Row():
-                slider = gr.inputs.Slider(
-                    minimum=0.0,
-                    maximum=1.0,
-                    step=0.1,
-                    default=0.4,
-                    label="threshold",
-                )
-                btn = gr.Button("Run")
-            out_df = gr.outputs.Dataframe(
-                headers=None,
-                max_rows=lines,  # 20
-                max_cols=None,
-                overflow_row_behaviour="paginate",
-                type="auto",
-                label="To be aligned",
-            )
-            with gr.Row():
-                aligned = gr.outputs.Dataframe(
-                    headers=None,
-                    max_rows=lines,  # 20
-                    max_cols=None,
-                    overflow_row_behaviour="paginate",
-                    type="auto",
-                    label="Aligned",
-                )
-                leftover = gr.outputs.Dataframe(
-                    headers=None,
-                    max_rows=lines,  # 20
-                    max_cols=None,
-                    overflow_row_behaviour="paginate",
-                    type="auto",
-                    label="Leftover",
-                )
-            btn.click(
-                fn=ifn,
-                inputs=[
-                    text1,
-                    text2,
-                ],
-                outputs=[
-                    out_df,
-                    aligned,
-                    leftover,
-                ]
-            )
 
 
 if __name__ == "__main__":
