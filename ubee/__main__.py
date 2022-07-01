@@ -36,11 +36,11 @@ def greet1(name):
     return "Hello " + name + "!!"
 
 
+# segment: str
 def ifn(
-    text1,
-    text2,
-    # segment: str
-    thresh: float
+    # text1,
+    # text2,
+    # thresh: float
 ) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """Take inputs, return outputs.
 
@@ -216,10 +216,13 @@ def main():
         with gr.Column():
             with gr.Row():
                 text1 = gr.inputs.Textbox(
-                    lines=lines, placeholder=placeholder, default=ex2_zh, label="text1"
+                    lines=lines,
+                    # placeholder=placeholder, default=ex2_zh, label="text1"
                 ),
                 text2 = gr.inputs.Textbox(
-                    lines=lines, placeholder=placeholder, default=ex2_en, label="text2"
+                    lines=lines,
+                    # placeholder=placeholder, default=ex2_en,
+                    label="text2"
                 )
             with gr.Row():
                 slider = gr.inputs.Slider(
@@ -230,6 +233,7 @@ def main():
                     label="threshold",
                 )
                 btn = gr.Button("Run")
+                
             out_df = gr.outputs.Dataframe(
                 headers=None,
                 max_rows=lines,  # 20
@@ -238,28 +242,31 @@ def main():
                 type="auto",
                 label="To be aligned",
             )
-            with gr.Row():
-                aligned = gr.outputs.Dataframe(
-                    headers=None,
-                    max_rows=lines,  # 20
-                    max_cols=None,
-                    overflow_row_behaviour="paginate",
-                    type="auto",
-                    label="Aligned",
-                )
-                leftover = gr.outputs.Dataframe(
-                    headers=None,
-                    max_rows=lines,  # 20
-                    max_cols=None,
-                    overflow_row_behaviour="paginate",
-                    type="auto",
-                    label="Leftover",
-                )
+            
+            # with gr.Row():
+            aligned = gr.outputs.Dataframe(
+                headers=None,
+                max_rows=lines,  # 20
+                max_cols=None,
+                overflow_row_behaviour="paginate",
+                type="auto",
+                label="Aligned",
+            )
+
+            leftover = gr.outputs.Dataframe(
+                headers=None,
+                max_rows=lines,  # 20
+                max_cols=None,
+                overflow_row_behaviour="paginate",
+                type="auto",
+                label="Leftover",
+            )
+
             btn.click(
                 ifn,
                 inputs=[
-                    text1,
-                    text2,
+                    # text1,
+                    # text2,
                 ],
                 outputs=[
                     out_df,
