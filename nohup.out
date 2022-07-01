@@ -67,3 +67,31 @@ Emitted 'error' event on ReadStream instance at:
   warnings.warn(value)
 /home/mu2018/github/ultimatumbee/.venv/lib/python3.8/site-packages/gradio/interface.py:292: UserWarning: Currently, only the 'default' theme is supported.
   warnings.warn("Currently, only the 'default' theme is supported.")
+[I 220701 20:43:48 icecream:185] ic| __main__.py:56 in greet()
+        res1: ['她', '望望', '我', '往', '她', '的', '椅背', '一靠', '不', '动', '也', '不', '出声']
+[I 220701 20:43:48 icecream:185] ic| __main__.py:57 in greet()
+        res2: ['She',
+               'at',
+               'me',
+               'leaning',
+               'and',
+               'mute',
+               'remained',
+               'in',
+               'her',
+               'chair',
+               'back',
+               'and',
+               'looked',
+               'motionless']
+[I 220701 20:43:48 icecream:185] ic| ubee.py:33 in ubee()- seq: '她'
+[I 220701 20:44:24 icecream:185] ic| ubee.py:33 in ubee()- seq: '望望'
+[I 220701 20:44:58 icecream:185] ic| ubee.py:33 in ubee()- seq: '我'
+[I 220701 20:45:31 icecream:185] ic| ubee.py:33 in ubee()- seq: '往'
+[I 220701 20:46:06 icecream:185] ic| ubee.py:33 in ubee()- seq: '她'
+[E 220701 20:46:06 ubee:41] list.remove(x): x not in list
+[I 220701 20:46:06 ubee:42] seq: 她, lable: She
+[I 220701 20:46:06 icecream:185] ic| ubee.py:33 in ubee()- seq: '的'
+[E 220701 20:46:38 ubee:41] list.remove(x): x not in list
+[I 220701 20:46:38 ubee:42] seq: 的, lable: at
+[I 220701 20:46:38 icecream:185] ic| ubee.py:33 in ubee()- seq: '椅背'
