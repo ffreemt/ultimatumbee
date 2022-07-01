@@ -1,0 +1,69 @@
+[33m[nodemon] 2.0.18[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): app.py ubee/**/*[39m
+[33m[nodemon] watching extensions: py,json[39m
+[32m[nodemon] starting `python -t py app.py`[39m
+events.js:377
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EBADF: bad file descriptor, read
+Emitted 'error' event on ReadStream instance at:
+    at internal/fs/streams.js:173:14
+    at FSReqCallback.wrapper [as oncomplete] (fs.js:563:5) {
+  errno: -9,
+  code: 'EBADF',
+  syscall: 'read'
+}
+python: can't open file 'py': [Errno 2] No such file or directory
+[33m[nodemon] 2.0.18[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): app.py ubee/**/*[39m
+[33m[nodemon] watching extensions: py[39m
+[32m[nodemon] starting `python app.py`[39m
+events.js:377
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EBADF: bad file descriptor, read
+Emitted 'error' event on ReadStream instance at:
+    at internal/fs/streams.js:173:14
+    at FSReqCallback.wrapper [as oncomplete] (fs.js:563:5) {
+  errno: -9,
+  code: 'EBADF',
+  syscall: 'read'
+}
+[E 220701 19:47:16 fetch_check_aux:54]
+    Traceback (most recent call last):
+      File "/usr/lib/python3.8/pathlib.py", line 1288, in mkdir
+        self._accessor.mkdir(self, mode)
+    PermissionError: [Errno 13] Permission denied: '/root/.cache/huggingface/transformers'
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/home/mu2018/github/ultimatumbee/.venv/lib/python3.8/site-packages/model_pool/fetch_check_aux.py", line 52, in fetch_check_aux
+        local_dir.mkdir(parents=True, exist_ok=True)
+      File "/usr/lib/python3.8/pathlib.py", line 1297, in mkdir
+        if not exist_ok or not self.is_dir():
+      File "/usr/lib/python3.8/pathlib.py", line 1422, in is_dir
+        return S_ISDIR(self.stat().st_mode)
+      File "/usr/lib/python3.8/pathlib.py", line 1198, in stat
+        return self._accessor.stat(self)
+    PermissionError: [Errno 13] Permission denied: '/root/.cache/huggingface/transformers'
+[W 220701 19:47:16 fetch_check_aux:55] You will need to run this as admin or root, or create /root (C:oot) and set write permerssion to this user.
+[W 220701 19:47:16 load_model:44] You ll need to run as root or admin or give write permission to /root/.cache/huggingface or C:oot\.cache\huggingface to this user.
+[I 220701 19:47:17 model_s:32] Fetching and caching model_s from huggingface.co... The first time may take a while depending on your net.
+ Subsequent loading takes ~2-3 secs ... |███| 1/1 [100%] in 2.9s (0.34/s) 
+[I 220701 19:47:20 load_model:73] Fetching and caching clas-l-user from huggingface.co... The first time may take a while depending on your net.
+ Subsequent loading takes ~2-3 secs ... |███| 1/1 [100%] in 7.8s (0.13/s) 
+/home/mu2018/github/ultimatumbee/.venv/lib/python3.8/site-packages/gradio/deprecation.py:40: UserWarning: `optional` parameter is deprecated, and it has no effect
+  warnings.warn(value)
+/home/mu2018/github/ultimatumbee/.venv/lib/python3.8/site-packages/gradio/deprecation.py:40: UserWarning: `numeric` parameter is deprecated, and it has no effect
+  warnings.warn(value)
+/home/mu2018/github/ultimatumbee/.venv/lib/python3.8/site-packages/gradio/deprecation.py:40: UserWarning: The 'type' parameter has been deprecated. Use the Number component instead.
+  warnings.warn(value)
+/home/mu2018/github/ultimatumbee/.venv/lib/python3.8/site-packages/gradio/deprecation.py:40: UserWarning: `layout` parameter is deprecated, and it has no effect
+  warnings.warn(value)
+/home/mu2018/github/ultimatumbee/.venv/lib/python3.8/site-packages/gradio/interface.py:292: UserWarning: Currently, only the 'default' theme is supported.
+  warnings.warn("Currently, only the 'default' theme is supported.")
