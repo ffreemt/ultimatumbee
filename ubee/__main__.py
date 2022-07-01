@@ -38,8 +38,8 @@ def greet1(name):
 
 # segment: str
 def ifn(
-    # text1,
-    # text2,
+    text1,
+    text2,
     # thresh: float
 ) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """Take inputs, return outputs.
@@ -233,7 +233,7 @@ def main():
                     label="threshold",
                 )
                 btn = gr.Button("Run")
-                
+
             out_df = gr.outputs.Dataframe(
                 headers=None,
                 max_rows=lines,  # 20
@@ -242,7 +242,7 @@ def main():
                 type="auto",
                 label="To be aligned",
             )
-            
+
             # with gr.Row():
             aligned = gr.outputs.Dataframe(
                 headers=None,
@@ -265,8 +265,8 @@ def main():
             btn.click(
                 ifn,
                 inputs=[
-                    # text1,
-                    # text2,
+                    text1,
+                    text2,
                 ],
                 outputs=[
                     out_df,
