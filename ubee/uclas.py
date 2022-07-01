@@ -2,16 +2,16 @@
 # pylint: disable=invalid-name
 
 from typing import List, Tuple, Union
-import numpy as np
-from sklearn.metrics.pairwise import cosine_similarity
-from joblib import Memory
-
-from model_pool import fetch_check_aux  # pylint: disable=import-error
-from model_pool.model_s import load_model_s  # pylint: disable=import-error
-from model_pool.load_model import load_model  # pylint: disable=import-error
 
 import logzero
+import numpy as np
+from joblib import Memory
 from logzero import logger
+# set PYTHONPATH=..\align-model-pool  # in win10
+from model_pool.fetch_check_aux import fetch_check_aux
+from model_pool.load_model import load_model
+from model_pool.model_s import load_model_s
+from sklearn.metrics.pairwise import cosine_similarity
 
 logzero.loglevel(20)
 

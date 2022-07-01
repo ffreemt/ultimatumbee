@@ -1,11 +1,12 @@
 """Align via ubee,"""
 # pylint: disable=
-from typing import Iterable, List, Tuple
 from itertools import zip_longest
+from typing import Iterable, List, Tuple
 
-from logzero import logger
-from ubee.uclas import uclas
 from icecream import ic
+from logzero import logger
+
+from ubee.uclas import uclas
 
 
 def ubee(
@@ -17,7 +18,7 @@ def ubee(
 
     Args:
         sents_zh: list of text, can be any langauge supported by clas-l-user
-        sents_zh: ditto
+        sents_en: ditto
     Returns:
         three tuples of aligned blocked
         leftovers (unaligned)

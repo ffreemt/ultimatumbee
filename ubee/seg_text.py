@@ -9,15 +9,14 @@ else use polyglot.text.Text
 """
 # pylint: disable=
 
+import re
 from typing import List, Optional, Union
 
-import re
-from tqdm.auto import tqdm
+from logzero import logger
 from polyglot.detect.base import logger as polyglot_logger
 from polyglot.text import Detector, Text
 from sentence_splitter import split_text_into_sentences
-
-from logzero import logger
+from tqdm.auto import tqdm
 
 # turn of polyglot.text.Detector warning
 polyglot_logger.setLevel("ERROR")

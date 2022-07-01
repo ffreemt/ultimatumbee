@@ -1,20 +1,18 @@
 """Gen ubee main."""
-# pylint: disable=unused-import, wrong-import-position, wrong-import-order, too-many-locals, broad-except
+# pylint: disable=unused-import, wrong-import-position, wrong-import-order, too-many-locals, broad-except, line-too-long
 
-from typing import Tuple, Optional
-
-from pathlib import Path
 import sys
-from random import shuffle
-
 from itertools import zip_longest
+from pathlib import Path
+from random import shuffle
 from textwrap import dedent
+from typing import Optional, Tuple
 
 import gradio as gr
-
-import pandas as pd
-from icecream import install as ic_install, ic
 import logzero
+import pandas as pd
+from icecream import ic
+from icecream import install as ic_install
 from logzero import logger
 
 # for embeddable python
