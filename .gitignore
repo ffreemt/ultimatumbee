@@ -144,3 +144,6 @@ node_modules
 cachedir
 gradio_queue.db
 gradio_queue.db-journal
+install-sw.sh
+install-sw1.sh
+.stignore
