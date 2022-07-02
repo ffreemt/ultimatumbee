@@ -120,7 +120,8 @@ def ifn(
     else:
         _ = None
 
-    return out_df, pd.DataFrame(res1_, columns=["text1", "text2", "likelihood"]), _
+    # return out_df, pd.DataFrame(res1_, columns=["text1", "text2", "likelihood"]), _
+    return pd.DataFrame(res1_, columns=["text1", "text2", "likelihood"]), _
 
 
 def main():
@@ -195,6 +196,8 @@ def main():
 
             Align non-sequential dualtexts.
 
+            可对词、句、段，每个词（或句或段）一行。可对任意语言对（英中、英德、德法、中日……等等）。建议 threshold 门槛值 -- 词： 0.3，句：0.5， 段： 0.7
+
             """).strip()
         )
         with gr.Column():
@@ -221,6 +224,7 @@ def main():
                 )
                 btn = gr.Button("Run")
 
+            _ = """
             out_df = gr.Dataframe(
                 headers=None,
                 max_rows=lines,  # 20
@@ -229,6 +233,7 @@ def main():
                 type="auto",
                 label="To be aligned",
             )
+            # """
 
             # with gr.Row():
             aligned = gr.Dataframe(
@@ -260,7 +265,7 @@ def main():
                     thresh,
                 ],
                 outputs=[
-                    out_df,
+                    # out_df,
                     aligned,
                     leftover,
                 ]
