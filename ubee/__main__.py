@@ -31,11 +31,11 @@ ic.enable()
 # ic.disenable()  # to turn off
 
 ic("Testing...")
-from model_pool import __version__, check_fetch_aux
+from model_pool import __version__, fetch_check_aux
 print("model-pool version", __version__)
 
 try:
-    check_fetch_aux()
+    fetch_check_aux()
 except Exception as _:
     ic(_)
 
