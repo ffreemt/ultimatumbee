@@ -95,6 +95,10 @@ def ifn(
         pd.DataFrame
     """
     # global text1, text2, thresh
+    ic(text1)
+    ic(text2)
+    ic(type(text1))
+    ic(type(text2))
 
     res1 = [elm.strip() for elm in text1.splitlines() if elm.strip()]
     res2 = [elm.strip() for elm in text2.splitlines() if elm.strip()]
