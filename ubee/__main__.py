@@ -67,9 +67,9 @@ try:
 except Exception as _:
     ic(["load_model(\"clas-l-user\")", _])
 
-# _ = clas("love", "liebe,hate you,test", False)
-# print(_)
-# raise SystemExit("Exit by intention")
+_ = clas("love", ["liebe", "hate you", "test"])
+print(_)
+raise SystemExit("Exit by intention")
 
 
 # segment: str
