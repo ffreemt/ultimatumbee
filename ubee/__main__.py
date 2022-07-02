@@ -75,9 +75,10 @@ except Exception as _:
 # 'scores': [0.8885253667831421, 0.10581762343645096, 0.005657028406858444]}
 # Runs OK
 
-text1= ""
+text1 = ""
 text2 = ""
 thresh: float = 0.4
+
 
 # segment: str
 def ifn(
@@ -121,6 +122,8 @@ def ifn(
 
 def main():
     """Create main entry."""
+    global text1, text2, threash
+
     text_zh = Path("data/test_zh.txt").read_text(encoding="utf8")
     text_zh = [elm.strip() for elm in text_zh.splitlines() if elm.strip()][:10]
     text_zh = "\n\n".join(text_zh)
@@ -180,73 +183,6 @@ def main():
     lines = 15
     placeholder = "Type or paste text here"
 
-    inputs = [
-        gr.inputs.Textbox(
-            lines=lines, placeholder=placeholder, default=ex2_zh, label="text1"
-        ),
-        gr.inputs.Textbox(
-            lines=lines, placeholder=placeholder, default=ex2_en, label="text2"
-        ),
-        gr.inputs.Slider(
-            minimum=0.0,
-            maximum=1.0,
-            step=0.1,
-            default=0.4,
-            label="threshold",
-        ),
-    ]
-
-    out_df = gr.outputs.Dataframe(
-        headers=None,
-        max_rows=lines,  # 20
-        max_cols=None,
-        overflow_row_behaviour="paginate",
-        type="auto",
-        label="To be aligned",
-    )
-    aligned = gr.outputs.Dataframe(
-        headers=None,
-        max_rows=lines,  # 20
-        max_cols=None,
-        overflow_row_behaviour="paginate",
-        type="auto",
-        label="Aligned",
-    )
-    leftover = gr.outputs.Dataframe(
-        headers=None,
-        max_rows=lines,  # 20
-        max_cols=None,
-        overflow_row_behaviour="paginate",
-        type="auto",
-        label="Leftover",
-    )
-    outputs = [  # tot. 3
-        out_df,
-        aligned,
-        leftover,
-    ]
-
-    _ = """ # switch to blocks
-    iface = gr.Interface(
-        fn=greet,
-        # fn=ubee,
-        title=title,
-        theme=theme,
-        layout="vertical",  # horizontal unaligned
-        description=description,
-        article=article,
-        # inputs="text",
-        # outputs="text",
-        inputs=inputs,  # text1, text2, segment, thresh
-        outputs=outputs,
-        examples=examples,
-        # enable_queue=True,
-    )
-    iface.launch(
-        enable_queue=True,
-        share=True,
-    )
-    # """
     blocks = gr.Blocks()
 
     with blocks:
