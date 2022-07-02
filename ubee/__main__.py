@@ -95,13 +95,13 @@ def ifn(
         pd.DataFrame
     """
     # global text1, text2, thresh
-    ic(text1)
-    ic(text2)
-    ic(type(text1))
-    ic(type(text2))
+    ic(text1.value)
+    ic(text2.value)
+    ic(type(text1.value))
+    ic(type(text2.value))
 
-    res1 = [elm.strip() for elm in text1.splitlines() if elm.strip()]
-    res2 = [elm.strip() for elm in text2.splitlines() if elm.strip()]
+    res1 = [elm.strip() for elm in text1.value.splitlines() if elm.strip()]
+    res2 = [elm.strip() for elm in text2.value.splitlines() if elm.strip()]
 
     ic(res1)
     ic(res2)
