@@ -13,9 +13,14 @@ from model_pool.load_model import load_model
 from model_pool.model_s import load_model_s
 from sklearn.metrics.pairwise import cosine_similarity
 
-logzero.loglevel(20)
+# logzero.loglevel(20)
 
-fetch_check_aux("/home/user")
+# fetch_check_aux("/home/user")
+try:
+    fetch_check_aux()
+except Exception as _:
+    logger.error(_)
+
 model_s = load_model_s()
 clas = load_model("clas-l-user")
 
