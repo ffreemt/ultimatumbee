@@ -6,6 +6,7 @@ sklearn
 git+https://github.com/ffreemt/align-model-pool
 sentence-transformers
 logzero
+set_loglevel
 icecream
 alive-progress
 more_itertools
