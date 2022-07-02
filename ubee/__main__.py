@@ -309,11 +309,11 @@ def main():
 
             btn.click(
                 ifn,
-                inputs=[
+                inputs=(
                     text1,
                     text2,
                     thresh,
-                ],
+                ),
                 outputs=[
                     out_df,
                     aligned,
