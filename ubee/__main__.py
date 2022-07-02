@@ -35,8 +35,8 @@ from logzero import logger
 # for embeddable python
 # if "." not in sys.path: sys.path.insert(0, ".")
 
-# from ubee import __version__
-# from ubee.ubee import ubee
+from ubee import __version__
+from ubee.ubee import ubee
 
 # logzero.loglevel(10)
 logger.debug(" debug on ")
@@ -52,8 +52,9 @@ ic.enable()
 ic(" ic.enabled ")
 
 ic("Testing...")
-from model_pool import __version__, fetch_check_aux
-print("model-pool version", __version__)
+import model_pool
+from model_pool import fetch_check_aux
+print("model-pool version", model_pool.__version__)
 print("gradio version", gr.__version__)
 
 try:
@@ -67,9 +68,12 @@ try:
 except Exception as _:
     ic(["load_model(\"clas-l-user\")", _])
 
-_ = clas("love", ["liebe", "hate you", "test"])
-print(_)
-raise SystemExit("Exit by intention")
+# _ = clas("love", ["liebe", "hate you", "test"])
+# print(_)
+# raise SystemExit("Exit by intention")
+# {'sequence': 'love', 'labels': ['liebe', 'test', 'hate you'],
+# 'scores': [0.8885253667831421, 0.10581762343645096, 0.005657028406858444]}
+# Runs OK
 
 
 # segment: str
@@ -86,6 +90,8 @@ def ifn(
     Returns:
         pd.DataFrame
     """
+    global text1, text2, thresh
+
     res1 = [elm.strip() for elm in text1.splitlines() if elm.strip()]
     res2 = [elm.strip() for elm in text2.splitlines() if elm.strip()]
 
@@ -310,6 +316,9 @@ def main():
                     leftover,
                 ]
             )
+
+    # blocks.launch()
+    blocks.launch(debug=True, enable_queue=True)
 
 
 if __name__ == "__main__":
