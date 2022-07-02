@@ -75,12 +75,15 @@ except Exception as _:
 # 'scores': [0.8885253667831421, 0.10581762343645096, 0.005657028406858444]}
 # Runs OK
 
+text1= ""
+text2 = ""
+thresh: float = 0.4
 
 # segment: str
 def ifn(
-    text1,
-    text2,
-    thresh: float
+    # text1,
+    # text2,
+    # thresh: float
 ) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """Take inputs, return outputs.
 
@@ -310,9 +313,9 @@ def main():
             btn.click(
                 fn=ifn,
                 inputs=[
-                    text1,
-                    text2,
-                    thresh,
+                    # text1,
+                    # text2,
+                    # thresh,
                 ],
                 outputs=[
                     out_df,
