@@ -3,7 +3,7 @@ title: Ultimatumbee
 emoji: 🏢
 colorFrom: blue
 colorTo: indigo
-sdk: gradio 3.0
+sdk: gradio
 app_file: app.py
 pinned: false
 license: mit
