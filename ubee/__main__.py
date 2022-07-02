@@ -66,7 +66,8 @@ try:
     clas = load_model("clas-l-user")
 except Exception as _:
     ic(["load_model(\"clas-l-user\")", _])
-_ = clas("love", ["liebe", "hate you", "test"], False)
+
+_ = clas("love", "liebe,hate you,test", False)
 print(_)
 
 raise SystemExit("Exit by intention")
