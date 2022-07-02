@@ -78,9 +78,9 @@ except Exception as _:
 
 # segment: str
 def ifn(
-    # text1,
-    # text2,
-    # thresh: float
+    text1,
+    text2,
+    thresh: float
 ) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """Take inputs, return outputs.
 
@@ -90,7 +90,7 @@ def ifn(
     Returns:
         pd.DataFrame
     """
-    global text1, text2, thresh
+    # global text1, text2, thresh
 
     res1 = [elm.strip() for elm in text1.splitlines() if elm.strip()]
     res2 = [elm.strip() for elm in text2.splitlines() if elm.strip()]
@@ -267,7 +267,7 @@ def main():
                     label="text2"
                 )
             with gr.Row():
-                slider = gr.inputs.Slider(
+                thresh = gr.inputs.Slider(
                     minimum=0.0,
                     maximum=1.0,
                     step=0.1,
@@ -307,8 +307,9 @@ def main():
             btn.click(
                 ifn,
                 inputs=[
-                    # text1,
-                    # text2,
+                    text1,
+                    text2,
+                    thresh,
                 ],
                 outputs=[
                     out_df,
