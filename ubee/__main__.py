@@ -31,6 +31,9 @@ ic.enable()
 # ic.disenable()  # to turn off
 
 ic("Testing...")
+from model_pool import __version__
+print("model-pool version", __version__)
+
 raise SystemExit("Exit by intention")
 
 
