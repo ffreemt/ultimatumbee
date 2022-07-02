@@ -39,7 +39,7 @@ try:
 except Exception as _:
     ic(_)
 
-raise SystemExit("Exit by intention")
+# raise SystemExit("Exit by intention")
 
 
 # segment: str
