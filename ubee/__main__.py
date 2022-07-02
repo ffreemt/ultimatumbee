@@ -30,16 +30,14 @@ ic.configureOutput(
 ic.enable()
 # ic.disenable()  # to turn off
 
-
-def greet1(name):
-    """Dummy."""
-    return "Hello " + name + "!!"
+ic("Testing...")
+raise SystemExit("Exit by intention")
 
 
 # segment: str
 def ifn(
-    text1,
-    text2,
+    # text1,
+    # text2,
     # thresh: float
 ) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """Take inputs, return outputs.
@@ -265,8 +263,8 @@ def main():
             btn.click(
                 ifn,
                 inputs=[
-                    text1,
-                    text2,
+                    # text1,
+                    # text2,
                 ],
                 outputs=[
                     out_df,
