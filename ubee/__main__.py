@@ -1,4 +1,21 @@
-"""Gen ubee main."""
+"""Gen ubee main.
+
+private
+url = 'https://hf.space/embed/mikeee/zero-shot/+/api/predict'
+resp = httpx.post(
+    url,
+    json={"data": ["love", ",".join(["liebe", "this is test", "hate you"]), False]},
+    timeout=httpx.Timeout(None, connect=3),
+)
+resp.json()
+{'data': [{'label': 'liebe',
+   'confidences': [{'label': 'liebe', 'confidence': 0.8688847422599792},
+    {'label': 'this is test', 'confidence': 0.12558135390281677},
+    {'label': 'hate you', 'confidence': 0.005533925257623196}]}],
+ 'duration': 0.265749454498291,
+ 'average_duration': 4.639325571060181}
+
+"""
 # pylint: disable=unused-import, wrong-import-position, wrong-import-order, too-many-locals, broad-except, line-too-long
 
 import sys
@@ -49,7 +66,7 @@ try:
     clas = load_model("clas-l-user")
 except Exception as _:
     ic(["load_model(\"clas-l-user\")", _])
-_ = clas("love", "liebe, hate you, test", False)
+_ = clas("love", ["liebe", "hate you", "test"], False)
 print(_)
 
 raise SystemExit("Exit by intention")
