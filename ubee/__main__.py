@@ -259,11 +259,14 @@ def main():
             with gr.Row():
                 text1 = gr.inputs.Textbox(
                     lines=lines,
-                    # placeholder=placeholder, default=ex2_zh, label="text1"
+                    placeholder=placeholder,
+                    default=ex2_zh,
+                    label="text1"
                 ),
                 text2 = gr.inputs.Textbox(
                     lines=lines,
-                    # placeholder=placeholder, default=ex2_en,
+                    placeholder=placeholder,
+                    default=ex2_en,
                     label="text2"
                 )
             with gr.Row():
