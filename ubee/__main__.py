@@ -75,16 +75,16 @@ except Exception as _:
 # 'scores': [0.8885253667831421, 0.10581762343645096, 0.005657028406858444]}
 # Runs OK
 
-text1 = ""
-text2 = ""
-thresh: float = 0.4
+# text1 = ""
+# text2 = ""
+# thresh: float = 0.4
 
 
 # segment: str
 def ifn(
-    # text1,
-    # text2,
-    # thresh: float
+    text1,
+    text2,
+    thresh
 ) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """Take inputs, return outputs.
 
@@ -109,7 +109,7 @@ def ifn(
     # _ = pd.DataFrame(zip_longest(res1, res2), columns=["text1", "text2"])
     # return _
 
-    res1_, res2_ = ubee(res1, res2, thresh)
+    res1_, res2_ = ubee(res1, res2, thresh.value)
 
     out_df = pd.DataFrame(
         zip_longest(res1, res2),
@@ -126,7 +126,7 @@ def ifn(
 
 def main():
     """Create main entry."""
-    global text1, text2, threash
+    # global text1, text2, threash
 
     text_zh = Path("data/test_zh.txt").read_text(encoding="utf8")
     text_zh = [elm.strip() for elm in text_zh.splitlines() if elm.strip()][:10]
