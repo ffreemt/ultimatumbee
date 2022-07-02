@@ -257,20 +257,20 @@ def main():
         )
         with gr.Column():
             with gr.Row():
-                text1 = gr.inputs.Textbox(
+                text1 = gr.Textbox(
                     lines=lines,
                     placeholder=placeholder,
                     default=ex2_zh,
                     label="text1"
                 ),
-                text2 = gr.inputs.Textbox(
+                text2 = gr.Textbox(
                     lines=lines,
                     placeholder=placeholder,
                     default=ex2_en,
                     label="text2"
                 )
             with gr.Row():
-                thresh = gr.inputs.Slider(
+                thresh = gr.Slider(
                     minimum=0.0,
                     maximum=1.0,
                     step=0.1,
@@ -308,12 +308,12 @@ def main():
             )
 
             btn.click(
-                ifn,
-                inputs=(
+                fn=ifn,
+                inputs=[
                     text1,
                     text2,
                     thresh,
-                ),
+                ],
                 outputs=[
                     out_df,
                     aligned,
