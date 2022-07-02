@@ -253,9 +253,9 @@ def main():
             btn.click(
                 fn=ifn,
                 inputs=[
-                    # text1,
-                    # text2,
-                    # thresh,
+                    text1,
+                    text2,
+                    thresh,
                 ],
                 outputs=[
                     out_df,
