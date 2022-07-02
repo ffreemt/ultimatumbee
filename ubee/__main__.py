@@ -31,6 +31,8 @@ import pandas as pd
 from icecream import ic
 from icecream import install as ic_install
 from logzero import logger
+from set_loglevel import set_loglevel
+logzero.loglevel(set_loglevel())
 
 # for embeddable python
 # if "." not in sys.path: sys.path.insert(0, ".")
@@ -51,6 +53,7 @@ ic.enable()
 
 ic(" ic.enabled ")
 
+_ = """
 ic("Testing...")
 import model_pool
 from model_pool import fetch_check_aux
@@ -67,6 +70,7 @@ try:
     clas = load_model("clas-l-user")
 except Exception as _:
     ic(["load_model(\"clas-l-user\")", _])
+# """
 
 # _ = clas("love", ["liebe", "hate you", "test"])
 # print(_)
@@ -94,12 +98,6 @@ def ifn(
     Returns:
         pd.DataFrame
     """
-    # global text1, text2, thresh
-    ic(text1)
-    ic(text2)
-    ic(type(text1))
-    ic(type(text2))
-
     res1 = [elm.strip() for elm in text1.splitlines() if elm.strip()]
     res2 = [elm.strip() for elm in text2.splitlines() if elm.strip()]
 
@@ -110,6 +108,7 @@ def ifn(
     # return _
 
     res1_, res2_ = ubee(res1, res2, thresh)
+    # res1_, res2_ = res1, res2
 
     out_df = pd.DataFrame(
         zip_longest(res1, res2),
@@ -205,7 +204,7 @@ def main():
                     placeholder=placeholder,
                     value=ex2_zh,
                     label="text1"
-                ),
+                )
                 text2 = gr.Textbox(
                     lines=lines,
                     placeholder=placeholder,
@@ -222,7 +221,7 @@ def main():
                 )
                 btn = gr.Button("Run")
 
-            out_df = gr.outputs.Dataframe(
+            out_df = gr.Dataframe(
                 headers=None,
                 max_rows=lines,  # 20
                 max_cols=None,
@@ -232,7 +231,7 @@ def main():
             )
 
             # with gr.Row():
-            aligned = gr.outputs.Dataframe(
+            aligned = gr.Dataframe(
                 headers=None,
                 max_rows=lines,  # 20
                 max_cols=None,
@@ -241,7 +240,7 @@ def main():
                 label="Aligned",
             )
 
-            leftover = gr.outputs.Dataframe(
+            leftover = gr.Dataframe(
                 headers=None,
                 max_rows=lines,  # 20
                 max_cols=None,
@@ -249,6 +248,9 @@ def main():
                 type="auto",
                 label="Leftover",
             )
+
+            logger.debug("text1: %s", text1)
+            logger.debug("text2: %s", text2)
 
             btn.click(
                 fn=ifn,
