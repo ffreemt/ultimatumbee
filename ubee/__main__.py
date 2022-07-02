@@ -22,6 +22,8 @@ from logzero import logger
 # from ubee.ubee import ubee
 
 # logzero.loglevel(10)
+logger.debug(" debug on ")
+
 ic_install()
 ic.configureOutput(
     includeContext=True,
@@ -29,6 +31,8 @@ ic.configureOutput(
 )
 ic.enable()
 # ic.disenable()  # to turn off
+
+ic(" ic.enabled ")
 
 ic("Testing...")
 from model_pool import __version__, fetch_check_aux
@@ -284,6 +288,7 @@ def main():
 
 
 if __name__ == "__main__":
+    logger.info(" Start main()")
     main()
 
 _ = """
