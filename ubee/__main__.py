@@ -35,7 +35,7 @@ from model_pool import __version__, fetch_check_aux
 print("model-pool version", __version__)
 
 try:
-    fetch_check_aux()
+    fetch_check_aux.fetch_check_aux()
 except Exception as _:
     ic(_)
 
