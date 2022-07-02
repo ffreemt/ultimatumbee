@@ -18,8 +18,8 @@ from logzero import logger
 # for embeddable python
 # if "." not in sys.path: sys.path.insert(0, ".")
 
-from ubee import __version__
-from ubee.ubee import ubee
+# from ubee import __version__
+# from ubee.ubee import ubee
 
 # logzero.loglevel(10)
 ic_install()
@@ -31,8 +31,13 @@ ic.enable()
 # ic.disenable()  # to turn off
 
 ic("Testing...")
-from model_pool import __version__
+from model_pool import __version__, check_fetch_aux
 print("model-pool version", __version__)
+
+try:
+    check_fetch_aux()
+except Exception as _:
+    ic(_)
 
 raise SystemExit("Exit by intention")
 
